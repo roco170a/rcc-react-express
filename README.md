@@ -1,12 +1,8 @@
 # rcc-react-express
 
-### Built With
+### Construido con
 
 Los componenetes utilizados para esta ejercicio fueron React, PWA, Node, Express y MySQL
-
-* [![Node][Node.js]][Node-url]
-* [![React][React.js]][React-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -14,11 +10,11 @@ Los componenetes utilizados para esta ejercicio fueron React, PWA, Node, Express
 
 
 <!-- GETTING STARTED -->
-## Getting Started
+## Iniciar
 
-Para poder ejecutar la solución, por favor sigue las siguientes instrucciónes:
+Para poder ejecutar la solución, por favor siga las siguientes instrucciónes:
 
-### Prerequisites
+### PreRequisitos
 
 Instalar Node y npm en su version 18 o posterior
 * npm
@@ -26,16 +22,16 @@ Instalar Node y npm en su version 18 o posterior
   npm install npm@latest -g
   ```
 
-### Installation
+### Instalación
 
 Para poder instalar cada unos de los componentes
 
-1. Clone the repo
+1. Clone el repositorio
    ```sh
    git clone https://github.com/roco170a/rcc-react-express.git
    ```
 
-2. Instalación del backend (/) 
+2. Instalación del BACKEND (/) 
    ```sh
    npm install
    ```
@@ -52,7 +48,7 @@ Para poder instalar cada unos de los componentes
    ```sh
    npm run dev
    ```
-5. Instalación del front (/blog-client-3) 
+5. Instalación del FRONTEND (/blog-client-3) 
    ```sh
    npm install
    ```
