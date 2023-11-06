@@ -1,0 +1,185 @@
+basePath: "/blog-api"
+tags:
+- name: Blog
+  description: Blog register
+  
+paths:
+  #[GET] entradas
+  /entrada:
+    get:
+      tags:
+      - Blog
+      summary: Find All entrada
+      responses:
+        200:
+          description: 'OK'
+        500:
+          description: 'Server Error'
+
+  # [POST] entrada
+    post:
+      tags:
+      - Blog
+      summary: Add entrada
+      parameters:
+      - name: body
+        in: body
+        description: entrada Data
+        required: true
+        schema:
+          $ref: '#/definitions/entrada'
+      responses:
+        201:
+          description: 'Created'
+        400:
+          description: 'Bad Request'
+        409:
+          description: 'Conflict'
+        500:
+          description: 'Server Error'
+
+# [GET] entrada
+  /entrada/{id}:
+    get:
+      tags:
+      - Blog
+      summary: Find entrada By Id
+      parameters:
+      - name: id
+        in: path
+        description: entrada Id
+        type: number
+        required: true
+      responses:
+        200:
+          description: 'OK'
+        409:
+          description: 'Conflict'
+        500:
+          description: 'Server Error'
+
+# [PUT] entrada/id
+    put:
+      tags:
+      - Blog
+      summary: Update entrada By Id
+      parameters:
+      - name: id
+        in: path
+        description: entrada Id
+        type: string
+        required: true
+      - name: body
+        in: body
+        description: entrada Data
+        required: true
+        schema:
+          $ref: '#/definitions/entrada'
+      responses:
+        200:
+          description: 'OK'
+        400:
+          description: 'Bad Request'
+        409:
+          description: 'Conflict'
+        500:
+          description: 'Server Error'
+
+# [DELETE] entrada/id
+    delete:
+      tags:
+      - Blog
+      summary: Delete entrada By Id
+      parameters:
+      - name: id
+        in: path
+        description: entrada Id
+        type: number
+        required: true
+      responses:
+        200:
+          description: 'OK'
+        409:
+          description: 'Conflict'
+        500:
+          description: 'Server Error'
+
+
+
+# definitions
+definitions:
+
+  paramQuery: 
+    type: object
+    properties:
+      filter:
+          type: array
+          items:
+            type: object
+            properties:
+              fieldName:
+                type: string
+              fieldType:
+                type: string
+              operator:
+                type: string
+              fieldValue:
+                type: string
+      sort:
+        type: array
+        items:
+          type: object
+          properties:
+            fieldName:
+              type: string
+              description: name of the object
+      page:
+        type: integer
+      pageSize:
+        type: integer
+
+  post:
+      tags:
+      - Blog
+      summary: Filter entrada By Param
+      parameters:
+      - name: body
+        in: body
+        description: entrada Data
+        required: true
+        schema:
+          $ref: '#/definitions/paramQuery'
+      responses:
+        200:
+          description: 'OK'
+        409:
+          description: 'Conflict'
+        500:
+          description: 'Server Error'
+
+  entrada:
+    type: object
+    properties:  
+        id: 
+            type : integer  
+        titulo: 
+            type : string  
+        autor: 
+            type : string  
+        fecha: 
+            type: string
+            format: date # or date-time
+        contenido: 
+            type : string
+
+schemes:
+ - https
+ - http
+
+
+securitySchemes:
+
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

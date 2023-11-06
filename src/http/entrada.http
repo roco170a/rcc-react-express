@@ -1,0 +1,76 @@
+
+# baseURL
+@baseURL = http://localhost:4000
+
+###
+# Find All entradas
+GET {{ baseURL }}/blog-api/entrada
+
+###
+# Find entrada By Id
+GET {{ baseURL }}/blog-api/entrada/1
+
+###
+# Filter entrada
+POST {{ baseURL }}/blog-api/entrada/getByParam
+Content-Type: application/json
+
+{
+  "filter":[	{
+	"fieldName" : "id",
+    "fieldType": "number",
+    "operator": "in",
+    "fieldListValues": [1,3]
+	} , 
+	{
+	"fieldName" : "titulo",
+    "fieldType": "string",
+    "operator": "like",
+    "fieldValue": "%I%"
+	} ],    
+  "sort": [
+    {
+      "entrada.id": "desc"
+    } ] ,
+  "page": 1,
+  "pageSize" : 1
+}
+
+
+###
+# Count entrada
+POST {{ baseURL }}/blog-api/entrada_filtercount
+Content-Type: application/json
+
+{
+  "status": "Active"
+}
+
+###
+# Create entrada
+POST {{ baseURL }}/blog-api/entrada
+Content-Type: application/json
+
+{
+	"id" : 1,
+	"titulo" : "string",
+	"autor" : "string",
+	"fecha" : "2022-01-01 01:10",
+	"contenido" : "string"
+}
+###
+# Modify entrada By Id
+PUT {{ baseURL }}/blog-api/entrada/1
+Content-Type: application/json
+
+{
+	"id" : 1,
+	"titulo" : "string",
+	"autor" : "string",
+	"fecha" : "2022-01-01 01:10",
+	"contenido" : "string"
+}
+
+###
+# Delete entrada By Id
+DELETE {{ baseURL }}/blog-api/entrada/1
