@@ -35,7 +35,7 @@ Para poder instalar cada unos de los componentes
    ```sh
    npm install
    ```
-3. Actualizar la conexion a la base de datos en los archivos .env.*.local
+3. Actualizar la conexion a la base de datos en los archivos .env.development.local
    ```js
 	# DATABASE
 	DB_USER = usr
